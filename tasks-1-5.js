@@ -90,10 +90,10 @@ function counterWordsInSentence(sentence, testWord) {
         counter++;
       }
     }
-    console.log(counter);
+  
     return counter;
   }
-  console.log(false);
+ 
   return false;
 }
 // counterWordsInSentence("you hello you how hello are you you you", "you");

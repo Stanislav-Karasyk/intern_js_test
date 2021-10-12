@@ -163,6 +163,8 @@ function counterPositiveItemsOfArr(arr) {
 // console.log(counterPositiveItemsOfArr([-1, 2, -3, 4, 5, 6, -1]));
 
 function counterPrimeNumbersOfArr(arr) {
+  let counter = 0;
+  
   function isPrime(num) {
     for (let i = 2; i < num; i++) {
       if (num % i === 0) {
@@ -173,7 +175,6 @@ function counterPrimeNumbersOfArr(arr) {
     return num > 1;
   }
 
-  let counter = 0;
 
   for (let i = 0; i < arr.length; i++) {
     if (isPrime(arr[i])) {
@@ -184,4 +185,4 @@ function counterPrimeNumbersOfArr(arr) {
   return counter;
 }
 
-console.log(counterPrimeNumbersOfArr([1, 2, 3, 4, 5, 6, 5, 5]));
+// console.log(counterPrimeNumbersOfArr([1, 2, 3, 4, 5, 6, 5, 5]));
