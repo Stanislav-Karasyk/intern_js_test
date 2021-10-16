@@ -51,7 +51,6 @@ function counterDigits(number, digit) {
 // console.log(counterDigits(1223334444, 4));
 
 // =============Tsak 4 +
-
 function uniqueWordCount(sentence) {
   const sentenceAsArr = sentence.split(" ");
   let counter = 0;

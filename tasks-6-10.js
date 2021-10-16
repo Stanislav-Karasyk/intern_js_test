@@ -1,18 +1,17 @@
 // =============Tsak 6 +
-function fib(n) {
+function fib(num) {
   const result = [0, 1];
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < num; i++) {
     let sum = result[i] + result[i + 1];
     result.push(sum);
   }
 
   return result.slice(0, -2);
 }
-// console.log(fib(10));
+// console.log(fib(5));
 
 // =============Tsak 7
-
 // Rectangle
 function getRectangleP(sideA, sideB) {
   return (sideA + sideB) * 2;
@@ -56,11 +55,10 @@ function getСircleS(radius) {
 // console.log(getСircleS(5));
 
 // =============Tsak 8
-
-function getFactorial(n) {
+function getFactorial(num) {
   let result = 1;
 
-  for (let i = n; i > 1; i--) {
+  for (let i = num; i > 1; i--) {
     result *= i;
   }
 
@@ -69,10 +67,10 @@ function getFactorial(n) {
 // console.log(getFactorial(5));
 
 // вариант 2
-function getFactorial2(n) {
+function getFactorial2(num) {
   let result = 1;
 
-  for (let i = 1; i <= n; i++) {
+  for (let i = 1; i <= num; i++) {
     result *= i;
   }
 
@@ -81,7 +79,6 @@ function getFactorial2(n) {
 // console.log(getFactorial2(5));
 
 // =============Tsak 9
-
 function getSumMultipleOfTwo(arr) {
   let sum = 0;
 
@@ -93,7 +90,7 @@ function getSumMultipleOfTwo(arr) {
 
   return sum;
 }
-// console.log(getSumMultipleOfTwo([1, 2, 3, 4, 5, 6]));
+// console.log(getSumMultipleOfTwo([1, 2, 3, 4]));
 
 function getSumMultipleOfThree(arr) {
   let sum = 0;
@@ -112,17 +109,16 @@ function getSumPositiveOdd(arr) {
   let sum = 0;
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 0 && arr[i] % 2 !== 0) {
+    if (arr[i] > 0 && arr[i] % 2 === 0) {
       sum += arr[i];
     }
   }
 
   return sum;
 }
-// console.log(getSumPositiveOdd([1, 2, 3, 4]));
+// console.log(getSumPositiveOdd([1, 2, 3, 4, 1]));
 
 // =============Tsak 10
-
 function counterZeroItemsOfArr(arr) {
   let counter = 0;
 
@@ -134,7 +130,7 @@ function counterZeroItemsOfArr(arr) {
 
   return counter;
 }
-// console.log(counterZeroItemsOfArr([1, 0, 2, 0, 3, 0]));
+// console.log(counterZeroItemsOfArr([0, 0, 2, 0, 3, 0]));
 
 function counterNegativeItemsOfArr(arr) {
   let counter = 0;
@@ -164,17 +160,15 @@ function counterPositiveItemsOfArr(arr) {
 
 function counterPrimeNumbersOfArr(arr) {
   let counter = 0;
-  
+
   function isPrime(num) {
     for (let i = 2; i < num; i++) {
       if (num % i === 0) {
         return false;
       }
     }
-
     return num > 1;
   }
-
 
   for (let i = 0; i < arr.length; i++) {
     if (isPrime(arr[i])) {
@@ -184,5 +178,4 @@ function counterPrimeNumbersOfArr(arr) {
 
   return counter;
 }
-
-// console.log(counterPrimeNumbersOfArr([1, 2, 3, 4, 5, 6, 5, 5]));
+// console.log(counterPrimeNumbersOfArr([1, 2, 3, 4, 5]));

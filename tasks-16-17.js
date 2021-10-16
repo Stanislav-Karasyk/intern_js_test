@@ -1,5 +1,4 @@
 // =============Tsak 16
-
 const matrixTest1 = [
   [1, 2, 3],
   [4, 5, 6],
@@ -27,7 +26,6 @@ function getSumTwoMatrix(matrix1, matrix2) {
 // console.log(getSumTwoMatrix(matrixTest1, matrixTest2));
 
 // =============Tsak 17
-
 function deleteLineWithZero(matrix) {
   let resultMatrix = [];
 

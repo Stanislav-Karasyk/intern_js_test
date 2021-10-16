@@ -1,18 +1,15 @@
 // =============Tsak 11
-
 function decimalToBinary(num) {
   let binaryArr = [];
-  let tempNum = num;
 
-  while (tempNum >= 1) {
-    binaryArr.unshift(Math.floor(tempNum % 2));
-    tempNum = tempNum / 2;
+  for(let i = num; num >= 1; i++){
+    binaryArr.unshift(Math.floor(num % 2));
+    num /= 2;
   }
 
   return binaryArr;
 }
-
-// console.log(decimalToBinary(5));
+// console.log(decimalToBinary(12));
 
 function binaryToDecimal(binary) {
   const binaryAsArr = binary.split("").reverse();
@@ -23,11 +20,9 @@ function binaryToDecimal(binary) {
   }
   return res;
 }
-
 // console.log(binaryToDecimal("1100")); //12
 
 // =============Tsak 12
-
 const matrixTest = [
   [1, 2, 3],
   [4, 5, 6],
@@ -147,10 +142,9 @@ function counterPrimeNumbersOfMatrix(matrix) {
 
   return counter;
 }
-// console.log(counterPrimeNumbersOfMatrix(matrixTest));
+console.log(counterPrimeNumbersOfMatrix(matrixTest));
 
 // =============Tsak 13
-
 function getSumNumMinToMaxAll(min, max) {
   let sum = 0;
 
@@ -187,7 +181,6 @@ function getSumNumMinToMaxPositive(min, max) {
 // console.log(getSumNumMinToMaxPositive(-3, 3));
 
 // =============Tsak 14
-
 function getMeanEvenOfArr(arr) {
   let counterEven = 0;
   let sumEven = 0;
@@ -251,7 +244,6 @@ function getMeanOddOfMatrix(matrix) {
 // console.log(getMeanOddOfMatrix(matrixTest));
 
 // =============Tsak 15
-
 const matrixForTranspose = [
   [1, 2, 3],
   [4, 5, 6],
