@@ -1,4 +1,4 @@
-// ============Task 1 +
+// ============Task 1 
 function isAnagram(word1, word2) {
   if (word1.length !== word2.length) {
     return false;
@@ -32,16 +32,14 @@ function isAnagram(word1, word2) {
 }
 // console.log(isAnagram("нора", "рано"));
 
-// =============Tsak 2 +
-
-// =============Tsak 3 +
+// =============Tsak 3 
 function counterDigits(number, digit) {
   const numToStr = number.toString();
-  const numToDig = digit.toString();
+  const digToStr = digit.toString();
   let totalDigits = 0;
 
   for (let i = 0; i < numToStr.length; i++) {
-    if (numToDig === numToStr[i]) {
+    if (digToStr === numToStr[i]) {
       totalDigits++;
     }
   }
@@ -50,7 +48,7 @@ function counterDigits(number, digit) {
 }
 // console.log(counterDigits(1223334444, 4));
 
-// =============Tsak 4 +
+// =============Tsak 4 
 function uniqueWordCount(sentence) {
   const sentenceAsArr = sentence.split(" ");
   let counter = 0;
@@ -62,10 +60,10 @@ function uniqueWordCount(sentence) {
   }
 
   function checking(item, arrOfItems) {
-    let counter = 0;
+    let counter2 = 0;
     for (let i = 0; i < arrOfItems.length; i++) {
       if (item === arrOfItems[i]) {
-        if (++counter > 1) {
+        if (++counter2 > 1) {
           return false;
         }
       }
@@ -76,11 +74,11 @@ function uniqueWordCount(sentence) {
 
   return counter;
 }
-// console.log(uniqueWordCount("you hello hello how are you you"));
+// console.log(uniqueWordCount("a b c"));
 
-// =============Tsak 5 +
+// =============Tsak 5 
 function counterWordsInSentence(sentence, testWord) {
-  const sentenceAsArr = sentence.split(" ");
+  const sentenceAsArr = sentence.toLowerCase().split(" ");
   let counter = 0;
 
   if (sentenceAsArr.includes(testWord)) {

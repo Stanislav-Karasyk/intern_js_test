@@ -2,7 +2,7 @@
 function decimalToBinary(num) {
   let binaryArr = [];
 
-  for(let i = num; num >= 1; i++){
+  for (let i = num; num >= 1; i++) {
     binaryArr.unshift(Math.floor(num % 2));
     num /= 2;
   }
@@ -142,7 +142,7 @@ function counterPrimeNumbersOfMatrix(matrix) {
 
   return counter;
 }
-console.log(counterPrimeNumbersOfMatrix(matrixTest));
+// console.log(counterPrimeNumbersOfMatrix(matrixTest));
 
 // =============Tsak 13
 function getSumNumMinToMaxAll(min, max) {
@@ -154,7 +154,7 @@ function getSumNumMinToMaxAll(min, max) {
 
   return sum;
 }
-// console.log(getSumNumMinToMaxAll(10, 15));
+// console.log(getSumNumMinToMaxAll(10, 20));
 
 function getSumNumMinToMaxMultOfThree(min, max) {
   let sum = 0;
@@ -166,8 +166,8 @@ function getSumNumMinToMaxMultOfThree(min, max) {
   }
   return sum;
 }
-// console.log(getSumNumMinToMaxMultOfThree(10, 15));
-
+// console.log(getSumNumMinToMaxMultOfThree(10, 20));
+//
 function getSumNumMinToMaxPositive(min, max) {
   let sum = 0;
 
@@ -178,7 +178,7 @@ function getSumNumMinToMaxPositive(min, max) {
   }
   return sum;
 }
-// console.log(getSumNumMinToMaxPositive(-3, 3));
+// console.log(getSumNumMinToMaxPositive(-10, 20));
 
 // =============Tsak 14
 function getMeanEvenOfArr(arr) {
@@ -244,20 +244,19 @@ function getMeanOddOfMatrix(matrix) {
 // console.log(getMeanOddOfMatrix(matrixTest));
 
 // =============Tsak 15
-const matrixForTranspose = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
-
 function getTransposeMatrix(matrix) {
+  const matrixTransp = [];
+
   for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < i; j++) {
-      let temp = matrix[i][j];
-      matrix[i][j] = matrix[j][i];
-      matrix[j][i] = temp;
+    matrixTransp.push([]);
+  }
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      matrixTransp[j].push(matrix[i][j]);
     }
   }
-  return matrix;
+
+  return matrixTransp;
 }
-// console.log(getTransposeMatrix(matrixForTranspose));
+// console.log(getTransposeMatrix(matrixTest));
