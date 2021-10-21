@@ -40,23 +40,27 @@ function isAnagram(word1, word2, index1, counter1, counter2, index2) {
 // console.log(isAnagram("нора", "рано"));
 
 // =============Tsak 3
-function counterDigits(number, digit, index) {
-  const numToStr = number.toString();
-  const digToStr = digit.toString();
-  let totalDigits = 0;
-  index = index || 0;
+function counterDigits(number, res, index1, index2) {
+  const numAsArr = number.toString();
+  res = res || {};
+  index1 = index1 || 0;
+  index2 = index2 || 0;
 
-  if (digToStr === numToStr[index]) {
-    totalDigits++;
+  if (index1 < numAsArr.length) {
+    res[numAsArr[index1]] = 0;
+
+    return counterDigits(number, res, ++index1);
   }
 
-  if (index < numToStr.length) {
-    return totalDigits + counterDigits(number, digit, ++index);
+  if (index2 < numAsArr.length) {
+    res[numAsArr[index2]]++;
+
+    return counterDigits(number, res, index1, ++index2);
   }
 
-  return totalDigits;
+  return res;
 }
-// console.log(counterDigits(1223334444, 2));
+// console.log(counterDigits(1223334444));
 
 // =============Tsak 4
 function uniqueWordCount(sentence, uniqueWords, index1, index2, counter) {
@@ -88,34 +92,42 @@ function uniqueWordCount(sentence, uniqueWords, index1, index2, counter) {
 // console.log(uniqueWordCount("a b c c p"));
 
 // ============Task 5
-function counterWordsInSentence(sentence, testWord, index) {
+function counterWordsInSentence(sentence, res, index1, index2) {
+  res = res || {};
+  index1 = index1 || 0;
+  index2 = index2 || 0;
+
   const sentenceAsArr = sentence.toLowerCase().split(" ");
-  index = index || 0;
-  let counter = 0;
 
-  if (sentenceAsArr.includes(testWord)) {
-    if (testWord === sentenceAsArr[index]) {
-      counter++;
-    }
+  if (index1 < sentenceAsArr.length) {
+    res[sentenceAsArr[index1]] = 0;
+
+    return counterWordsInSentence(sentence, res, ++index1);
   }
 
-  if (index < sentenceAsArr.length) {
-    return counter + counterWordsInSentence(sentence, testWord, ++index);
+  if (index2 < sentenceAsArr.length) {
+    res[sentenceAsArr[index2]]++;
+
+    return counterWordsInSentence(sentence, res, index1, ++index2);
   }
 
-  return counter;
+  return res;
 }
-// console.log(counterWordsInSentence("you hello you how hello are", "hello"));
+// console.log(counterWordsInSentence("you hello you how hello are you you you"));
 
 // ============Task 6
-function fib(num, resArr = [0, 1]) {
-  resArr.push(resArr[resArr.length - 2] + resArr[resArr.length - 1]);
+function fib(num, resArr, index) {
+  index = index || 0;
+  resArr = resArr || [0, 1];
 
-  if (resArr.length < num) {
-    return fib(num, resArr);
+  if (index < num) {
+    let sum = resArr[index] + resArr[index + 1];
+    resArr.push(sum);
+
+    return fib(num, resArr, ++index);
   }
 
-  return resArr;
+  return resArr.slice(0, -2);
 }
 // console.log(fib(5));
 
@@ -129,7 +141,7 @@ function getFactorial(num) {
 
   return (res = num * getFactorial(num - 1));
 }
-// console.log(getFactorial(5));
+// console.log(getFactorial(7));
 
 // =============Tsak 9
 function getSumNumOfArr(arr, callback, index) {
@@ -152,16 +164,16 @@ function getSumNumOfArr(arr, callback, index) {
 // console.log(getSumNumOfArr([1, -2, 3, 4], (num) => num > 0 && num % 2 === 0)); // положительные и нечетные
 
 // =============Tsak 10
-function counterItemsOfArr(arr, callback, isFlag, index1) {
-  isFlag = isFlag || false;
+function counterItemsOfArr(arr, callback, isPrime, index1) {
+  isPrime = isPrime || false;
   index1 = index1 || 0;
   let counter = 0;
 
   if (index1 < arr.length) {
-    let isPrime = true;
+    isPrime = true;
     let num = arr[index1];
 
-    if (isFlag) {
+    if (isPrime) {
       (function isPrimeNum(index2) {
         index2 = index2 || 2;
 
@@ -179,7 +191,7 @@ function counterItemsOfArr(arr, callback, isFlag, index1) {
       counter++;
     }
 
-    return counter + counterItemsOfArr(arr, callback, isFlag, ++index1);
+    return counter + counterItemsOfArr(arr, callback, isPrime, ++index1);
   }
 
   return counter;
@@ -222,7 +234,7 @@ function binaryToDecimal(binary, index) {
 const matrixTest = [
   [1, 2, 3],
   [4, 5, 6],
-  [7, 8, 9],
+  [7, 8, 0],
 ];
 
 function getSumNumOfMatrix(matrix, callback, index1, index2) {
@@ -251,18 +263,18 @@ function getSumNumOfMatrix(matrix, callback, index1, index2) {
 // console.log(getSumNumOfMatrix(matrixTest, (num) => num % 3 === 0)); //кратные трем
 // console.log(getSumNumOfMatrix(matrixTest, (num) => num > 0 && num % 2 !== 0)); //положительные и нечетные
 
-function counterNumOfMatrix(matrix, callback, isFlag, index1, index2) {
-  isFlag = isFlag || false;
+function counterNumOfMatrix(matrix, callback, isPrime, index1, index2) {
+  isPrime = isPrime || false;
   index1 = index1 || 0;
   index2 = index2 || 0;
   let counter = 0;
 
   if (index1 < matrix.length) {
     if (index2 < matrix[index1].length) {
-      let isPrime = true;
+     isPrime = true;
       let num = matrix[index1][index2];
 
-      if (isFlag) {
+      if (isPrime) {
         (function isPrimeNum(index3) {
           index3 = index3 || 2;
 
@@ -281,11 +293,11 @@ function counterNumOfMatrix(matrix, callback, isFlag, index1, index2) {
       }
 
       return (
-        counter + counterNumOfMatrix(matrix, callback, isFlag, index1, ++index2)
+        counter + counterNumOfMatrix(matrix, callback, isPrime, index1, ++index2)
       );
     }
 
-    return counter + counterNumOfMatrix(matrix, callback, isFlag, ++index1);
+    return counter + counterNumOfMatrix(matrix, callback, isPrime, ++index1);
   }
   return counter;
 }
