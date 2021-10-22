@@ -116,7 +116,7 @@ function counterWordsInSentence(sentence, res, index1, index2) {
 // console.log(counterWordsInSentence("you hello you how hello are you you you"));
 
 // ============Task 6
-function fib(num, resArr, index) {
+function fibonacci(num, resArr, index) {
   index = index || 0;
   resArr = resArr || [0, 1];
 
@@ -124,12 +124,12 @@ function fib(num, resArr, index) {
     let sum = resArr[index] + resArr[index + 1];
     resArr.push(sum);
 
-    return fib(num, resArr, ++index);
+    return fibonacci(num, resArr, ++index);
   }
 
   return resArr.slice(0, -2);
 }
-// console.log(fib(5));
+// console.log(fibonacci(5));
 
 // ============Task 8
 function getFactorial(num) {
@@ -271,7 +271,7 @@ function counterNumOfMatrix(matrix, callback, isPrime, index1, index2) {
 
   if (index1 < matrix.length) {
     if (index2 < matrix[index1].length) {
-     isPrime = true;
+      isPrime = true;
       let num = matrix[index1][index2];
 
       if (isPrime) {
@@ -293,7 +293,8 @@ function counterNumOfMatrix(matrix, callback, isPrime, index1, index2) {
       }
 
       return (
-        counter + counterNumOfMatrix(matrix, callback, isPrime, index1, ++index2)
+        counter +
+        counterNumOfMatrix(matrix, callback, isPrime, index1, ++index2)
       );
     }
 

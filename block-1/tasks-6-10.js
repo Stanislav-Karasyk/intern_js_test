@@ -1,5 +1,5 @@
 // =============Tsak 6
-function fib(num) {
+function fibonacci(num) {
   const result = [0, 1];
 
   for (let i = 0; i < num; i++) {
@@ -9,7 +9,7 @@ function fib(num) {
 
   return result.slice(0, -2);
 }
-// console.log(fib(5));
+// console.log(fibonacci(5));
 
 // =============Tsak 7
 function getPerimeterRectangle(sideA, sideB) {

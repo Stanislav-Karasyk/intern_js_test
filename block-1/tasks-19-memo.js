@@ -181,7 +181,7 @@ const counterWordsInSentenceMemo = (() => {
 // console.log(counterWordsInSentenceMemo("you hello you how hello are you "));
 
 // ============Task 6
-const fibMemo = (() => {
+const fibonacciMemo = (() => {
   let memo = {};
 
   return (num, res, index) => {
@@ -195,7 +195,7 @@ const fibMemo = (() => {
         let sum = res[index] + res[index + 1];
         res.push(sum);
 
-        resMemo = fibMemo(num, res, ++index);
+        resMemo = fibonacciMemo(num, res, ++index);
         memo[num] = resMemo;
       }
 
@@ -205,7 +205,7 @@ const fibMemo = (() => {
     return resMemo;
   };
 })();
-// console.log(fibMemo(5));
+// console.log(fibonacciMemo(5));
 
 // ============Task 8
 const getFactorialMemo = (() => {
