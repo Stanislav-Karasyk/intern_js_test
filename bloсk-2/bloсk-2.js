@@ -79,9 +79,7 @@ Array.prototype.myFilter = function (callback) {
       resArr.push(arr[index]);
     }
 
-    if (callback(arr[index], index, arr) === undefined) {
-      return resArr;
-    }
+    return resArr;
   }
 
   return resArr;
@@ -91,26 +89,28 @@ Array.prototype.myFilter = function (callback) {
 
 Array.prototype.myReduce = function (callback, initialValue) {
   let arr = this;
-  let accumulator = initialValue || 0;
+  let accumulator = initialValue ?? arr[0];
+
+  let previousValue = accumulator === initialValue ? arr[0] : arr[1];
 
   for (let index = 0; index < arr.length; index++) {
-    callback(accumulator, arr[index], index, arr);
+    accumulator = callback(accumulator, previousValue, index, arr);
 
-    accumulator += arr[index];
+    previousValue = arr[index + 1];
   }
 
   return accumulator;
 };
-// console.log(
-//   testArr.reduce((previousValue, element) => {
-//     return previousValue + element;
-//   }, 0)
-// );
-// console.log(
-//   testArr.myReduce((previousValue, element) => {
-//     return previousValue + element;
-//   }, 0)
-// );
+console.log(
+  testArr.reduce((previousValue, element) => {
+    return previousValue + element;
+  }, 0)
+);
+console.log(
+  testArr.myReduce((previousValue, element) => {
+    return previousValue + element;
+  }, 0)
+);
 
 // =================== use iterator
 let iterableObj = {
