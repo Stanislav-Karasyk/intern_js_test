@@ -101,16 +101,16 @@ Array.prototype.myReduce = function (callback, initialValue) {
 
   return accumulator;
 };
-console.log(
-  testArr.reduce((previousValue, element) => {
-    return previousValue + element;
-  }, 0)
-);
-console.log(
-  testArr.myReduce((previousValue, element) => {
-    return previousValue + element;
-  }, 0)
-);
+// console.log(
+//   testArr.reduce((previousValue, element) => {
+//     return previousValue + element;
+//   }, 0)
+// );
+// console.log(
+//   testArr.myReduce((previousValue, element) => {
+//     return previousValue + element;
+//   }, 0)
+// );
 
 // =================== use iterator
 let iterableObj = {
