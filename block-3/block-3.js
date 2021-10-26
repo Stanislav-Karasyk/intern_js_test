@@ -113,42 +113,38 @@ arrValues.forEach((elem) => node.insert(elem));
 
 // =============Tsak 2
 Array.prototype.mySortBubble = function (callback) {
-  let arr = this;
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (callback(arr[j], arr[j + 1])) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
+  for (let i = 0; i < this.length; i++) {
+    for (let j = 0; j < this.length; j++) {
+      if (callback(this[j], this[j + 1])) {
+        let temp = this[j];
+        this[j] = this[j + 1];
+        this[j + 1] = temp;
       }
     }
   }
-  return arr;
+  return this;
 };
-// console.log(arrValues.mySortBubble((num1, num2) => num1 > num2));
-// console.log(arrValues.mySortBubble((num1, num2) => num1 < num2));
+console.log(arrValues.mySortBubble((num1, num2) => num1 > num2));
+console.log(arrValues.mySortBubble((num1, num2) => num1 < num2));
 
 Array.prototype.mySortSelection = function (callback) {
-  let arr = this;
-
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < this.length; i++) {
     let minIndex = i;
 
-    for (let j = i; j < arr.length; j++) {
-      if (callback(arr[j], arr[minIndex])) {
+    for (let j = i; j < this.length; j++) {
+      if (callback(this[j], this[minIndex])) {
         minIndex = j;
       }
     }
 
     if (minIndex !== i) {
-      let temp = arr[i];
-      arr[i] = arr[minIndex];
-      arr[minIndex] = temp;
+      let temp = this[i];
+      this[i] = this[minIndex];
+      this[minIndex] = temp;
     }
   }
 
-  return arr;
+  return this;
 };
 // console.log(arrValues.mySortSelection((num1, num2) => num1 > num2));
 // console.log(arrValues.mySortSelection((num1, num2) => num1 < num2));
