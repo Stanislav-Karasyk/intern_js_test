@@ -112,7 +112,9 @@ arrValues.forEach((elem) => node.insert(elem));
 // console.log(node);
 
 // =============Tsak 2
-function mySortBubble(arr, callback) {
+Array.prototype.mySortBubble = function (callback) {
+  let arr = this;
+
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
       if (callback(arr[j], arr[j + 1])) {
@@ -123,11 +125,13 @@ function mySortBubble(arr, callback) {
     }
   }
   return arr;
-}
-// console.log(mySortBubble(arrValues, (num1, num2) => num1 > num2));
-// console.log(mySortBubble(arrValues, (num1, num2) => num1 < num2));
+};
+// console.log(arrValues.mySortBubble((num1, num2) => num1 > num2));
+// console.log(arrValues.mySortBubble((num1, num2) => num1 < num2));
 
-function mySortSelection(arr, callback) {
+Array.prototype.mySortSelection = function (callback) {
+  let arr = this;
+
   for (let i = 0; i < arr.length; i++) {
     let minIndex = i;
 
@@ -145,6 +149,6 @@ function mySortSelection(arr, callback) {
   }
 
   return arr;
-}
-// console.log(mySortSelection(arrValues, (num1, num2) => num1 > num2));
-// console.log(mySortSelection(arrValues, (num1, num2) => num1 < num2));
+};
+// console.log(arrValues.mySortSelection((num1, num2) => num1 > num2));
+// console.log(arrValues.mySortSelection((num1, num2) => num1 < num2));
