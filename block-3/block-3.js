@@ -124,8 +124,8 @@ Array.prototype.mySortBubble = function (callback) {
   }
   return this;
 };
-console.log(arrValues.mySortBubble((num1, num2) => num1 > num2));
-console.log(arrValues.mySortBubble((num1, num2) => num1 < num2));
+// console.log(arrValues.mySortBubble((num1, num2) => num1 > num2));
+// console.log(arrValues.mySortBubble((num1, num2) => num1 < num2));
 
 Array.prototype.mySortSelection = function (callback) {
   for (let i = 0; i < this.length; i++) {
