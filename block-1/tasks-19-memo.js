@@ -9,11 +9,11 @@ const isAnagramMemo = (() => {
     counter2 = counter2 || 0;
     let resMemo = memo[(word1, word2)];
     let res = false;
-
+    
     if (resMemo === undefined) {
       if (word1.length !== word2.length) {
         memo[(word1, word2)] = res;
-
+        
         return res;
       }
 
@@ -104,8 +104,8 @@ const uniqueWordCountMemo = (() => {
     index1 = index1 || 0;
     index2 = index2 || 0;
     counter = counter || 0;
-    let resMemo = memo[sentenceAsArr];
 
+    let resMemo = memo[sentenceAsArr];
     if (resMemo === undefined) {
       if (index1 < sentenceAsArr.length) {
         const word = sentenceAsArr[index1];
@@ -139,7 +139,7 @@ const uniqueWordCountMemo = (() => {
     return resMemo;
   };
 })();
-// console.log(uniqueWordCountMemo("a b c c p"));
+console.log(uniqueWordCountMemo("a b c c p"));
 
 // ============Task 5
 const counterWordsInSentenceMemo = (() => {
@@ -178,7 +178,7 @@ const counterWordsInSentenceMemo = (() => {
     return resMemo;
   };
 })();
-// console.log(counterWordsInSentenceMemo("you hello you how hello are you "));
+console.log(counterWordsInSentenceMemo("you hello you how hello are you"));
 
 // ============Task 6
 const fibonacciMemo = (() => {

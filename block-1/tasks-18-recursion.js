@@ -14,7 +14,6 @@ function isAnagram(word1, word2, index1, counter1, counter2, index2) {
 
     if (index2 < word1.length) {
       let letter2 = word1[index2];
-
       if (letter1 === letter2) {
         counter1++;
       }
@@ -69,7 +68,7 @@ function uniqueWordCount(sentence, uniqueWords, index1, index2, counter) {
   index1 = index1 || 0;
   index2 = index2 || 0;
   counter = counter || 0;
-
+  
   if (index1 < sentenceAsArr.length) {
     const word = sentenceAsArr[index1];
 

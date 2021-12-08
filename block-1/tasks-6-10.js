@@ -12,44 +12,58 @@ function fibonacci(num) {
 // console.log(fibonacci(5));
 
 // =============Tsak 7
-function getPerimeterRectangle(sideA, sideB) {
-  return (sideA + sideB) * 2;
-}
-// console.log(getPerimeterRectangle(5, 9));
+class Rectangle {
+  constructor(sideA, sideB) {
+    this.sideA = sideA;
+    this.sideB = sideB;
+  }
 
-function getSquareRectangle(sideA, sideB) {
-  return sideA * sideB;
-}
-// console.log(getSquareRectangle(7, 2));
+  get perimeter() {
+    return (this.sideA + this.sideB) * 2;
+  }
 
-function getPerimeterTriangle(sideA, sideB, sideC) {
-  return sideA + sideB + sideC;
+  get area() {
+    return this.sideA * this.sideB;
+  }
 }
-// console.log(getPerimeterTriangle(7, 2, 3));
+class Triangle {
+  constructor(sideA, sideB, sideC) {
+    this.sideA = sideA;
+    this.sideB = sideB;
+    this.sideC = sideC;
+  }
 
-function getSquareTriangle(sideA, sideB, sideС) {
-  const semiPerimeter = (sideA + sideB + sideС) / 2;
-  const n =
-    semiPerimeter *
-    (semiPerimeter - sideA) *
-    (semiPerimeter - sideB) *
-    (semiPerimeter - sideС);
+  get perimeter() {
+    return this.sideA + this.sideB + this.sideC;
+  }
 
-  return n ** (1 / 2);
+  get area() {
+    const semiPerimeter = this.perimeter / 2;
+
+    return Math.sqrt(
+      semiPerimeter *
+          ((semiPerimeter - this.sideA) *
+              (semiPerimeter - this.sideB) *
+              (semiPerimeter - this.sideC)),
+  );
+  }
 }
-// console.log(getSquareTriangle(6, 7, 8));
+class Circle {
+  constructor(radius) {
+      this.radius = radius;
+  }
 
-function getPerimeterСircle(radius) {
-  const pi = 3.14;
-  return 2 * radius * pi;
-}
-// console.log(getPerimeterСircle(3));
+  get perimeter() {
+    return 2 * this.radius * Math.PI;
+  }
 
-function getSquareСircle(radius) {
-  const pi = 3.14;
-  return pi * radius ** 2;
+  get area() {
+    return Math.PI * this.radius ** 2;
+  }
 }
-// console.log(getSquareСircle(5));
+// const circle = new Circle(5);
+// console.log(circle.perimeter);
+// console.log(circle.area);
 
 // =============Tsak 8
 function getFactorial(num) {
@@ -124,4 +138,3 @@ function counterItemsOfArr(arr, callback, isPrime) {
 // console.log(
 //   counterItemsOfArr([2, 3, 4], (num, isPrime) => num > 1 && isPrime, true)
 // ); // простые числа
-
